@@ -113,30 +113,26 @@ import java.util.List;
  */
 
 public class EventLogger<T> {
+    private List<T> events;
 
-    // TODO: Declare a list to store events
-    // private List<T> events;
-
-    // TODO: Initialize the list in the constructor
     public EventLogger() {
-        // this.events = ...
+        this.events = new ArrayList<T>();
     }
 
-    // TODO: Add a new event to the list
     public void logEvent(T event) {
-        // ...
+        events.add(event);
     }
 
-    // TODO: Return the last event or null if empty
     public T getLastEvent() {
-        // ...
+        if (events.size() > 0) {
+            return events.get(events.size() - 1);
+        }
+
         return null;
     }
 
-    // TODO: Return all events in order of insertion
     public List<T> getAllEvents() {
-        // ...
-        return null;
+        return events;
     }
 
 	// Pre-defined classes
@@ -189,8 +185,8 @@ public class EventLogger<T> {
 	 // -------------------------------------------------------------
     // Manual test using IDE
     // -------------------------------------------------------------
-    /*
-	public static void main(String[] args) {
+    
+/* 	public static void main(String[] args) {
 		// Logging a user login event
 		EventLogger<UserLogin> loginLogger = new EventLogger<>();
 		loginLogger.logEvent(new UserLogin("maria", "08:00"));
@@ -206,7 +202,7 @@ public class EventLogger<T> {
 		errorLogger.logEvent(new SystemError("Timeout", 504));
 		System.out.println(errorLogger.getLastEvent());
 	}
-	 */
+*/	 
 	// Torna a comentar aquest main quan vulguis executar els tests amb maven test
     // Vuelve a comentar este main cuando quieras ejecutar los tests con:
     // mvn test
