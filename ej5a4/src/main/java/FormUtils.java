@@ -87,50 +87,63 @@ import java.util.List;
 public class FormUtils {
 
     public static <T> boolean contains(T[] array, T value) {
-        // TODO: return true if value is in array
-        
+        for(T element : array) {
+            if(element.equals(value)) {
+                return true;
+            }
+        } 
+        return false;
     }
 
     public static <T> int countItems(T[] array) {
-        // TODO: return the total number of items in array
-       
+        return array.length;
     }
 
     public static <T> boolean areEqual(T value1, T value2) {
-        // TODO: return true if value1 and value2 are equal
-        
+        return value1.equals(value2);
     }
 
     public static <T> int countOccurrences(T[] array, T value) {
-        // TODO: return how many times value appears in array
-        
+        int occurrences = 0;
+
+        for(T element : array) {
+            if(element.equals(value)) occurrences++;
+        }
+
+        return occurrences;
     }
 
     public static <T> List<T> removeNulls(T[] array) {
-        // TODO: return a new list excluding all null values
-        return new ArrayList<>();
+        List<T> noNullList = new ArrayList<T>();
+
+        for(T element : array) {
+            if(element != null) noNullList.add(element);
+        }
+
+        return noNullList;
+
     }
 
     // -------------------------------------------------------------
     // Manual test using IDE
     // -------------------------------------------------------------
-    /*
-    public static void main(String[] args) {
+    
+/*    public static void main(String[] args) {
         String[] languages = {"Java", "Python", "C++"};
-        System.out.println(FormUtilsStudent.contains(languages, "Python")); // true
+        System.out.println(FormUtils.contains(languages, "Python")); // true
 
         String[] ratings = {"good", "very good", "excellent"};
-        System.out.println(FormUtilsStudent.countItems(ratings));           // 3
+        System.out.println(FormUtils.countItems(ratings));           // 3
 
-        System.out.println(FormUtilsStudent.areEqual("pass123", "pass123")); // true
+        System.out.println(FormUtils.areEqual("pass123", "pass123")); // true
 
         String[] votes = {"yes", "no", "yes", "maybe", "yes"};
-        System.out.println(FormUtilsStudent.countOccurrences(votes, "yes")); // 3
+        System.out.println(FormUtils.countOccurrences(votes, "yes")); // 3
 
         String[] responses = {"ok", null, "ok", "skip", null};
-        System.out.println(FormUtilsStudent.removeNulls(responses)); // [ok, ok, skip]
-    }
-	*/
+        System.out.println(FormUtils.removeNulls(responses)); // [ok, ok, skip]
+    } */
+	
 	// Torna a comentar aquest main quan vulguis executar els tests amb maven test
     // Vuelve a comentar este main cuando quieras ejecutar los tests con:
     // mvn test
