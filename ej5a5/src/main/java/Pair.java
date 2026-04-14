@@ -7,8 +7,11 @@
  */
 
 public class Pair<T, U> {
+    public T first;
+    public U second;
 
-    // TODO: declare two public attributes named 'first' and 'second'
-
-    // TODO: implement a constructor that takes two parameters (first and second) and assigns them
+    public Pair(T first, U second) {
+        this.first = first;
+        this.second = second;
+    }
 }

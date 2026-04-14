@@ -82,38 +82,49 @@ import java.util.List;
  */
 
 public class PairRegistry<T, U> {
-
-    // TODO: create a list to store Pair<T, U> objects
+    public List<Pair<T,U>> objects;
 
     public PairRegistry() {
-        // TODO: initialize the list
+        objects = new ArrayList<Pair<T,U>>();
     }
 
-    // TODO: add a new Pair<T, U> to the list
     public void addPair(T first, U second) {
-        
+        objects.add(new Pair<T,U>(first, second));
     }
 
-    // TODO: print all pairs in the format: name - value
     public void printAll() {
-        
+        for(Pair<T,U> pair : objects) {
+            System.out.println(pair.first + " - " + pair.second);
+        }
     }
 
-    // TODO: find the value associated with the given key
     public U getValueByKey(T key) {
+        for(Pair<T,U> pair : objects) {
+            if(pair.first.equals(key)) return pair.second;
+        }
         return null;
     }
 
-    // TODO: return the total sum if U is Integer, otherwise return null
     public U sumValues() {
+        if(objects.isEmpty()) return null;
+
+        if(objects.get(0).second instanceof Integer) {
+            Integer sum = 0;
+            for(Pair<T,U> pair : objects) {
+                sum += (Integer) pair.second;
+            }
+
+            return (U) sum;
+        }
+        
         return null;
     }
 
     // -------------------------------------------------------------
     // Manual test using IDE
     // -------------------------------------------------------------
-    /*
-    public static void main(String[] args) {
+    
+/*  public static void main(String[] args) {
         PairRegistry<String, Integer> sales = new PairRegistry<>();
         sales.addPair("Shirt", 20);
         sales.addPair("Trousers", 15);
@@ -123,7 +134,7 @@ public class PairRegistry<T, U> {
         System.out.println("Total sold: " + sales.sumValues());
         System.out.println("Shirt sales: " + sales.getValueByKey("Shirt"));
     }
-    */
+ */   
     // Torna a comentar aquest main quan vulguis executar els tests amb maven test
     // Vuelve a comentar este main cuando quieras ejecutar los tests con:
     // mvn test
