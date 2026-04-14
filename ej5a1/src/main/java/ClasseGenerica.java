@@ -59,43 +59,41 @@ import java.util.List;
  */
  
 public class ClasseGenerica<T> {
-
-    // TODO: Declare a list to store elements of type T
     private List<T> elements;
 
-    // TODO: Initialize the list in the constructor
     public ClasseGenerica() {
-        // elements = ...
+        elements = new ArrayList<T>();
     }
 
-    // TODO: Add the given element to the list
     public void addElement(T element) {
-        // ...
+        elements.add(element);
     }
 
-    // TODO: Return the first element in the list, or null if the list is empty
     public T getFirstElement() {
-        // ...
-        
+        if(elements.size() > 0) {
+            return elements.get(0);
+        }
+            
+        return null;    
     }
 
-    // TODO: Return the last element in the list, or null if the list is empty
     public T getLastElement() {
-        // ...
-        
+        if(elements.size() > 0) {
+            return elements.get(elements.size() - 1);
+        }
+
+        return null;
     }
 
-    // TODO: Return the number of elements in the list
     public int getTotalElements() {
-        // ...
-    
+        return elements.size() > 0 ? elements.size() : 0;
     }
 
     // -------------------------------------------------------------
     // Manual test using IDE
     // -------------------------------------------------------------
-    /*
-    public static void main(String[] args) {
+    
+/*  public static void main(String[] args) {
         ClasseGenerica<String> texts = new ClasseGenerica<>();
         texts.addElement("Hello");
         texts.addElement("Goodbye");
@@ -103,7 +101,7 @@ public class ClasseGenerica<T> {
         System.out.println(texts.getFirstElement());   // Hello
         System.out.println(texts.getLastElement());     // Goodbye
         System.out.println(texts.getTotalElements());  // 2
-
+        
         ClasseGenerica<Integer> numbers = new ClasseGenerica<>();
         numbers.addElement(100);
         numbers.addElement(200);
@@ -111,8 +109,8 @@ public class ClasseGenerica<T> {
         System.out.println(numbers.getFirstElement()); // 100
         System.out.println(numbers.getLastElement());   // 200
         System.out.println(numbers.getTotalElements()); // 2
-    }
-	*/
+    } */
+	
 	// Torna a comentar aquest main quan vulguis executar els tests amb maven test
     // Vuelve a comentar este main cuando quieras ejecutar los tests con:
     // mvn test
